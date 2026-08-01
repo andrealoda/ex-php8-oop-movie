@@ -2,7 +2,7 @@
 
 class Genre
 {
-    public $genreName;
+    public string $genreName;
 
     function __construct($_genreName)
     {
@@ -13,30 +13,29 @@ class Genre
 
 class Movie
 {
-    public $title;
-    public $director;
-    public $genre;
+    public string $title;
+    public string $director;
+    public array $genres;
 
-    function __construct($_title, $_director, Genre $_genre)
+    function __construct(string $_title, string $_director, array $_genres)
     {
         $this->title = $_title;
         $this->director = $_director;
-        $this->genre = $_genre;
+        $this->genres = $_genres;
     }
 
     public function getMovieInfo()
     {
-        return $this->title . " - " . $this->director . " - " . $this->genre->genreName;
+        $genreNames = array_map(fn($genre) => $genre->genreName, $this->genres);
+        return $this->title . " - " . $this->director . " - " . implode(", ",  $genreNames);
     }
 }
 
 
-$movie1 = new Movie("Inception", "Christopher Nolan", new Genre("Sci-Fi"));
-
-$movie2 = new Movie("The Dark Knight", "Christopher Nolan", new Genre("Action"));
-
-$movie3 = new Movie("Interstellar", "Christopher Nolan", new Genre("Sci-Fi"));
-
+$movie1 = new Movie("Inception", "Christopher Nolan", [new Genre("Sci-Fi"), new Genre("Thriller")]);
+$movie2 = new Movie("The Dark Knight", "Christopher Nolan", [new Genre("Action"), new Genre("Crime")]);
+$movie3 = new Movie("Interstellar", "Christopher Nolan", [new Genre("Sci-Fi"), new Genre("Drama")]);
+$movie4 = new Movie("Pulp Fiction", "Quentin Tarantino", [new Genre("Crime"), new Genre("Drama"), new Genre("Thriller")]);
 
 ?>
 <!DOCTYPE html>
@@ -59,6 +58,9 @@ $movie3 = new Movie("Interstellar", "Christopher Nolan", new Genre("Sci-Fi"));
 
     <h2>Movie 3</h2>
     <p><?php echo $movie3->getMovieInfo(); ?></p>
+
+    <h2>Movie 4</h2>
+    <p><?php echo $movie4->getMovieInfo(); ?></p>
 
 </body>
 
