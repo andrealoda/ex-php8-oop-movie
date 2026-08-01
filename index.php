@@ -4,13 +4,19 @@ class Movie {
     public $title;
     public $director;
     public $genre;
+
+function __construct($_title, $_director, $_genre) {
+    $this->title = $_title;
+    $this->director = $_director;
+    $this->genre = $_genre;
 }
 
-$movie1 = new Movie();
-$movie1->title = "Inception";
 
-$movie2 = new Movie();
-$movie2->title = "The Dark Knight";
+}
+
+$movie1 = new Movie("Inception", "Christopher Nolan", "Sci-Fi");
+
+$movie2 = new Movie("The Dark Knight", "Christopher Nolan", "Action");
 
 
 ?>
