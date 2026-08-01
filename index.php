@@ -1,55 +1,10 @@
 <?php
 
-trait SeenMovie
-{
-    public bool $seen = false;
-
-    public function markAsSeen()
-    {
-        $this->seen = true;
-    }
-}
-
-class Genre
-{
-    public string $genreName;
-
-    function __construct(string $_genreName)
-    {
-        $this->genreName = $_genreName;
-    }
-}
-
-class Movie
-{
-    public string $title;
-    public string $director;
-    public array $genres;
-
-    function __construct(string $_title, string $_director, array $_genres)
-    {
-        $this->title = $_title;
-        $this->director = $_director;
-        $this->genres = $_genres;
-    }
-}
-
-class WatchedMovie extends Movie
-{
-    use SeenMovie;
-}
-
-$movie1 = new WatchedMovie("Inception", "Christopher Nolan", [new Genre("Sci-Fi"), new Genre("Thriller")]);
-$movie1->markAsSeen();
-
-$movie2 = new WatchedMovie("The Dark Knight", "Christopher Nolan", [new Genre("Action"), new Genre("Crime")]);
-$movie2->markAsSeen();
-
-$movie3 = new WatchedMovie("Interstellar", "Christopher Nolan", [new Genre("Sci-Fi"), new Genre("Drama")]);
-$movie3->markAsSeen();
-
-$movie4 = new WatchedMovie("Pulp Fiction", "Quentin Tarantino", [new Genre("Crime"), new Genre("Drama"), new Genre("Thriller")]);
-$movie4->markAsSeen();
+require_once "./traits/SeenMovie.php";
+require_once "./classes/Genre.php";
+require_once "./classes/Movie.php";
+require_once "./classes/WatchedMovie.php";
+require_once "./data.php";
 
 ?>
 <!DOCTYPE html>
@@ -126,6 +81,21 @@ $movie4->markAsSeen();
                     </div>
                 </div>
             </div>
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $movie5->title; ?></h5>
+                        <p class="card-text mb-1"><?php echo $movie5->director; ?></p>
+                        <p class="card-text mb-2">
+                            <?php echo implode(", ", array_map(fn($g) => $g->genreName, $movie5->genres)); ?>
+                        </p>
+                        <span class="badge <?php echo $movie5->seen ? 'bg-success' : 'bg-secondary'; ?>">
+                            <?php echo $movie5->seen ? "Seen" : "Not Seen"; ?>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
