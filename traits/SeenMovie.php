@@ -2,11 +2,17 @@
 
 trait SeenMovie
 {
-    public bool $seen = false;
+    private bool $seen = false;
 
-    public function markAsSeen()
+    //setter method to mark the movie as seen
+    public function setAsSeen()
     {
         $this->seen = true;
+    }
+
+    //getter method to check if the movie has been seen
+    public function getSeen(): bool {
+        return $this->seen;
     }
 }
 

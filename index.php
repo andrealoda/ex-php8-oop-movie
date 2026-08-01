@@ -30,8 +30,8 @@ require_once "./data.php";
                         <p class="card-text mb-2">
                             <?php echo implode(", ", array_map(fn($g) => $g->genreName, $movie1->genres)); ?>
                         </p>
-                        <span class="badge <?php echo $movie1->seen ? 'bg-success' : 'bg-secondary'; ?>">
-                            <?php echo $movie1->seen ? "Seen" : "Not Seen"; ?>
+                        <span class="badge <?php echo $movie1->getSeen() ? 'bg-success' : 'bg-secondary'; ?>">
+                            <?php echo $movie1->getSeen() ? "Seen" : "Not Seen"; ?>
                         </span>
                     </div>
                 </div>
@@ -45,8 +45,8 @@ require_once "./data.php";
                         <p class="card-text mb-2">
                             <?php echo implode(", ", array_map(fn($g) => $g->genreName, $movie2->genres)); ?>
                         </p>
-                        <span class="badge <?php echo $movie2->seen ? 'bg-success' : 'bg-secondary'; ?>">
-                            <?php echo $movie2->seen ? "Seen" : "Not Seen"; ?>
+                        <span class="badge <?php echo $movie2->getSeen() ? 'bg-success' : 'bg-secondary'; ?>">
+                            <?php echo $movie2->getSeen() ? "Seen" : "Not Seen"; ?>
                         </span>
                     </div>
                 </div>
@@ -60,8 +60,8 @@ require_once "./data.php";
                         <p class="card-text mb-2">
                             <?php echo implode(", ", array_map(fn($g) => $g->genreName, $movie3->genres)); ?>
                         </p>
-                        <span class="badge <?php echo $movie3->seen ? 'bg-success' : 'bg-secondary'; ?>">
-                            <?php echo $movie3->seen ? "Seen" : "Not Seen"; ?>
+                        <span class="badge <?php echo $movie3->getSeen() ? 'bg-success' : 'bg-secondary'; ?>">
+                            <?php echo $movie3->getSeen() ? "Seen" : "Not Seen"; ?>
                         </span>
                     </div>
                 </div>
@@ -75,8 +75,8 @@ require_once "./data.php";
                         <p class="card-text mb-2">
                             <?php echo implode(", ", array_map(fn($g) => $g->genreName, $movie4->genres)); ?>
                         </p>
-                        <span class="badge <?php echo $movie4->seen ? 'bg-success' : 'bg-secondary'; ?>">
-                            <?php echo $movie4->seen ? "Seen" : "Not Seen"; ?>
+                        <span class="badge <?php echo $movie4->getSeen() ? 'bg-success' : 'bg-secondary'; ?>">
+                            <?php echo $movie4->getSeen() ? "Seen" : "Not Seen"; ?>
                         </span>
                     </div>
                 </div>
@@ -89,8 +89,8 @@ require_once "./data.php";
                         <p class="card-text mb-2">
                             <?php echo implode(", ", array_map(fn($g) => $g->genreName, $movie5->genres)); ?>
                         </p>
-                        <span class="badge <?php echo $movie5->seen ? 'bg-success' : 'bg-secondary'; ?>">
-                            <?php echo $movie5->seen ? "Seen" : "Not Seen"; ?>
+                        <span class="badge <?php echo $movie5->getSeen() ? 'bg-success' : 'bg-secondary'; ?>">
+                            <?php echo $movie5->getSeen() ? "Seen" : "Not Seen"; ?>
                         </span>
                     </div>
                 </div>
